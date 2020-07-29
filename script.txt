@@ -53,4 +53,367 @@ front@pc:~/Documents/git-course$ sudo git commit -m "Add Readme.md, script.txt"
  create mode 100644 Readme.md
  create mode 100644 script.txt
 front@pc:~/Documents/git-course$ 
+-------------------------------------------------------------------------------------
+
+
+front@pc:~/Documents/git-course$ sudo git commit -m "Add script.txt" 
+[master 99e1435] Add script.txt
+ 1 file changed, 21 insertions(+), 1 deletion(-)
+
+-------------------------------------------------------------------------------------
+
+
+front@pc:~/Documents/git-course$ git status
+On branch master
+nothing to commit, working tree clean
+
+-------------------------------------------------------------------------------------
+
+front@pc:~/Documents/git-course$ git log --decorate
+commit 99e1435fda7f0886ff8c3af5920b4744e8cef69c (HEAD -> master)
+Author: Marcos Urbanski <marcos.urbanski@gmail.com>
+Date:   Wed Jul 29 09:49:19 2020 -0300
+
+    Add script.txt
+
+commit cfdaed1612b0fd2aa4da793034cfcda1164f5f66
+Author: Marcos Urbanski <marcos.urbanski@gmail.com>
+Date:   Wed Jul 29 09:46:56 2020 -0300
+
+    Add Readme.md, script.txt
+front@pc:~/Documents/git-course$ 
+
+
+
+front@pc:~/Documents/git-course$ git log --author="Marcos"
+commit 99e1435fda7f0886ff8c3af5920b4744e8cef69c (HEAD -> master)
+Author: Marcos Urbanski <marcos.urbanski@gmail.com>
+Date:   Wed Jul 29 09:49:19 2020 -0300
+
+    Add script.txt
+
+commit cfdaed1612b0fd2aa4da793034cfcda1164f5f66
+Author: Marcos Urbanski <marcos.urbanski@gmail.com>
+Date:   Wed Jul 29 09:46:56 2020 -0300
+
+    Add Readme.md, script.txt
+front@pc:~/Documents/git-course$ 
+
+front@pc:~/Documents/git-course$ git shortlog
+Marcos Urbanski (2):
+      Add Readme.md, script.txt
+      Add script.txt
+
+front@pc:~/Documents/git-course$ git shortlog --s
+     2  Marcos Urbanski
+front@pc:~/Documents/git-course$ 
+
+-------------------------------------------------------------------------------------
+
+front@pc:~/Documents/git-course$ git log --graph
+* commit 99e1435fda7f0886ff8c3af5920b4744e8cef69c (HEAD -> master)
+| Author: Marcos Urbanski <marcos.urbanski@gmail.com>
+| Date:   Wed Jul 29 09:49:19 2020 -0300
+| 
+|     Add script.txt
+| 
+* commit cfdaed1612b0fd2aa4da793034cfcda1164f5f66
+  Author: Marcos Urbanski <marcos.urbanski@gmail.com>
+  Date:   Wed Jul 29 09:46:56 2020 -0300
+  
+      Add Readme.md, script.txt
+front@pc:~/Documents/git-course$ 
+
+-------------------------------------------------------------------------------------
+
+front@pc:~/Documents/git-course$ git show 99e1435fda7f0886ff8c3af5920b4744e8cef69c
+commit 99e1435fda7f0886ff8c3af5920b4744e8cef69c (HEAD -> master)
+Author: Marcos Urbanski <marcos.urbanski@gmail.com>
+Date:   Wed Jul 29 09:49:19 2020 -0300
+
+    Add script.txt
+
+diff --git a/script.txt b/script.txt
+index 727a0cb..eb071ab 100644
+--- a/script.txt
++++ b/script.txt
+@@ -1,3 +1,6 @@
++
++sudo mkdir git-course
++
+ git config --global user.name "Marcos Urbanski"
+ 
+ git config --global user.email "marcos.urbanski@gmail.com"
+@@ -6,11 +9,18 @@ git config --global core.editor vim
+ 
+ git config --list
+ 
++
++
+ sudo git init
+ ls -la
+ 
++-------------------------------------------------------------------------------------
++
+ sudo vim Readme.md
+ 
++
++-------------------------------------------------------------------------------------
++
+ sudo git status
+ 
+ Untracked files:
+@@ -18,9 +28,13 @@ Untracked files:
+ 
+        Readme.md
+ 
++-------------------------------------------------------------------------------------
+ 
+ sudo git add Readme.md
+ 
++
++-------------------------------------------------------------------------------------
++
+ front@pc:~/Documents/git-course$ git status
+ On branch master
+ 
+@@ -31,6 +45,12 @@ Changes to be committed:
+ 
+        new file:   Readme.md
+ 
++-------------------------------------------------------------------------------------
+ 
+-
++front@pc:~/Documents/git-course$ sudo git commit -m "Add Readme.md, script.txt" 
++[master (root-commit) cfdaed1] Add Readme.md, script.txt
++ 2 files changed, 39 insertions(+)
++ create mode 100644 Readme.md
++ create mode 100644 script.txt
++front@pc:~/Documents/git-course$ 
+ 
+front@pc:~/Documents/git-course$ 
+
+-------------------------------------------------------------------------------------
+
+front@pc:~/Documents/git-course$ sudo vim Readme.md
+front@pc:~/Documents/git-course$ git diff
+diff --git a/Readme.md b/Readme.md
+index 122dd3c..f5fd14d 100644
+--- a/Readme.md
++++ b/Readme.md
+@@ -1,3 +1,7 @@
+ #Git Course
+ 
+ Este é um repositório teste para ensinar como o Git funciona.
++
++Saiba mais em [willianjusten.com.br](http://willianjusten.com.br)
++
++Gostou do curso? Quer mais? Ajude com uma doação, até um café é válido =)
+front@pc:~/Documents/git-course$ 
+front@pc:~/Documents/git-course$ git diff --name-only
+Readme.md
+
+front@pc:~/Documents/git-course$ sudo vim Readme.md
+
+
+front@pc:~/Documents/git-course$ sudo git commit -am "Edit Readme.md"
+[master c59eabd] Edit Readme.md
+ 1 file changed, 4 insertions(+)
+front@pc:~/Documents/git-course$ git status
+On branch master
+nothing to commit, working tree clean
+
+front@pc:~/Documents/git-course$ git show c59eabdfb904fb1096b29c1cb86b202b595df1db
+commit c59eabdfb904fb1096b29c1cb86b202b595df1db (HEAD -> master)
+Author: Marcos Urbanski <marcos.urbanski@gmail.com>
+Date:   Wed Jul 29 10:02:24 2020 -0300
+
+    Edit Readme.md
+
+diff --git a/Readme.md b/Readme.md
+index 122dd3c..f5fd14d 100644
+--- a/Readme.md
++++ b/Readme.md
+@@ -1,3 +1,7 @@
+ #Git Course
+ 
+ Este é um repositório teste para ensinar como o Git funciona.
++
++Saiba mais em [willianjusten.com.br](http://willianjusten.com.br)
++
++Gostou do curso? Quer mais? Ajude com uma doação, até um café é válido =)
+front@pc:~/Documents/git-course$ ^C
+
+*************Use checkout to delete changes on the edit stage*********************
+
+front@pc:~/Documents/git-course$ sudo git checkout Readme.md
+front@pc:~/Documents/git-course$ 
+front@pc:~/Documents/git-course$ 
+front@pc:~/Documents/git-course$ git status
+On branch master
+nothing to commit, working tree clean
+front@pc:~/Documents/git-course$ 
+
+-------------------------------------------------------------------------------------
+
+
+
+************used reset HEAD file to return after add file, to remove on the stage***************
+
+
+front@pc:~/Documents/git-course$ sudo git reset HEAD Readme.md
+Unstaged changes after reset:
+M	Readme.md
+front@pc:~/Documents/git-course$ 
+
+
+************ return the file to the edit stage***************
+
+to remove all use sudo git checkout Readme.md 
+
+-------------------------------------------------------------------------------------
+
+************ delete changes after commit ***************
+
+
+front@pc:~/Documents/git-course$ git status
+On branch master
+nothing to commit, working tree clean
+front@pc:~/Documents/git-course$ 
+
+change the file
+front@pc:~/Documents/git-course$ sudo vim Readme.md
+
+add file to commit,
+
+front@pc:~/Documents/git-course$ sudo git add Readme.md
+front@pc:~/Documents/git-course$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	modified:   Readme.md
+
+
+commit file changed,
+
+
+front@pc:~/Documents/git-course$ sudo git commit -am Readme.md
+[master 19506cc] Readme.md
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+
+front@pc:~/Documents/git-course$ git log
+commit 19506cc68c6a1a51ccaf17e9ce98d33a72d368bb (HEAD -> master)
+Author: Marcos Urbanski <marcos.urbanski@gmail.com>
+Date:   Wed Jul 29 11:19:40 2020 -0300
+
+    Readme.md
+
+to remove commited file we have 3 options git reset --soft --mixed --hard
+************ --soft = return the last commit but file will exist on the stage ************
+
+
+front@pc:~/Documents/git-course$ git log
+commit 19506cc68c6a1a51ccaf17e9ce98d33a72d368bb (HEAD -> master)
+Author: Marcos Urbanski <marcos.urbanski@gmail.com>
+Date:   Wed Jul 29 11:19:40 2020 -0300
+
+    Readme.md
+
+commit c59eabdfb904fb1096b29c1cb86b202b595df1db
+Author: Marcos Urbanski <marcos.urbanski@gmail.com>
+Date:   Wed Jul 29 10:02:24 2020 -0300
+
+    Edit Readme.md
+
+commit 99e1435fda7f0886ff8c3af5920b4744e8cef69c
+Author: Marcos Urbanski <marcos.urbanski@gmail.com>
+Date:   Wed Jul 29 09:49:19 2020 -0300
+
+    Add script.txt
+
+commit cfdaed1612b0fd2aa4da793034cfcda1164f5f66
+Author: Marcos Urbanski <marcos.urbanski@gmail.com>
+Date:   Wed Jul 29 09:46:56 2020 -0300
+
+    Add Readme.md, script.txt
+
+
+
+front@pc:~/Documents/git-course$ sudo git reset --soft c59eabdfb904fb1096b29c1cb86b202b595df1db
+front@pc:~/Documents/git-course$ git log
+commit c59eabdfb904fb1096b29c1cb86b202b595df1db (HEAD -> master)
+Author: Marcos Urbanski <marcos.urbanski@gmail.com>
+Date:   Wed Jul 29 10:02:24 2020 -0300
+
+    Edit Readme.md
+
+commit 99e1435fda7f0886ff8c3af5920b4744e8cef69c
+Author: Marcos Urbanski <marcos.urbanski@gmail.com>
+Date:   Wed Jul 29 09:49:19 2020 -0300
+
+    Add script.txt
+
+commit cfdaed1612b0fd2aa4da793034cfcda1164f5f66
+Author: Marcos Urbanski <marcos.urbanski@gmail.com>
+Date:   Wed Jul 29 09:46:56 2020 -0300
+
+    Add Readme.md, script.txt
+front@pc:~/Documents/git-course$ sudo git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	modified:   Readme.md
+
+front@pc:~/Documents/git-course$ 
+
+************ --mixed = return the last commit but file need to add on the stage ************
+
+front@pc:~/Documents/git-course$ sudo git reset --mixed c59eabdfb904fb1096b29c1cb86b202b595df1db
+Unstaged changes after reset:
+M	Readme.md
+front@pc:~/Documents/git-course$ 
+
+
+front@pc:~/Documents/git-course$ sudo git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   Readme.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+front@pc:~/Documents/git-course$ 
+
+************ --hard = return the last commit file and the last changes are deleted ************
+
+front@pc:~/Documents/git-course$ sudo git reset --hard c59eabdfb904fb1096b29c1cb86b202b595df1db
+HEAD is now at c59eabd Edit Readme.md
+front@pc:~/Documents/git-course$ sudo git status
+On branch master
+nothing to commit, working tree clean
+front@pc:~/Documents/git-course$ git log
+commit c59eabdfb904fb1096b29c1cb86b202b595df1db (HEAD -> master)
+Author: Marcos Urbanski <marcos.urbanski@gmail.com>
+Date:   Wed Jul 29 10:02:24 2020 -0300
+
+    Edit Readme.md
+
+commit 99e1435fda7f0886ff8c3af5920b4744e8cef69c
+Author: Marcos Urbanski <marcos.urbanski@gmail.com>
+Date:   Wed Jul 29 09:49:19 2020 -0300
+
+    Add script.txt
+
+commit cfdaed1612b0fd2aa4da793034cfcda1164f5f66
+Author: Marcos Urbanski <marcos.urbanski@gmail.com>
+Date:   Wed Jul 29 09:46:56 2020 -0300
+
+    Add Readme.md, script.txt
+front@pc:~/Documents/git-course$ 
+
+
 
