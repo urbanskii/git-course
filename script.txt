@@ -1,0 +1,36 @@
+git config --global user.name "Marcos Urbanski"
+
+git config --global user.email "marcos.urbanski@gmail.com"
+
+git config --global core.editor vim
+
+git config --list
+
+sudo git init
+ls -la
+
+sudo vim Readme.md
+
+sudo git status
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	Readme.md
+
+
+sudo git add Readme.md
+
+front@pc:~/Documents/git-course$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+
+	new file:   Readme.md
+
+
+
+
