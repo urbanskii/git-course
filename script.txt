@@ -1,3 +1,6 @@
+
+sudo mkdir git-course
+
 git config --global user.name "Marcos Urbanski"
 
 git config --global user.email "marcos.urbanski@gmail.com"
@@ -6,10 +9,17 @@ git config --global core.editor vim
 
 git config --list
 
+
+
 sudo git init
 ls -la
 
+-------------------------------------------------------------------------------------
+
 sudo vim Readme.md
+
+
+-------------------------------------------------------------------------------------
 
 sudo git status
 
@@ -18,8 +28,12 @@ Untracked files:
 
 	Readme.md
 
+-------------------------------------------------------------------------------------
 
 sudo git add Readme.md
+
+
+-------------------------------------------------------------------------------------
 
 front@pc:~/Documents/git-course$ git status
 On branch master
@@ -31,6 +45,12 @@ Changes to be committed:
 
 	new file:   Readme.md
 
+-------------------------------------------------------------------------------------
 
-
+front@pc:~/Documents/git-course$ sudo git commit -m "Add Readme.md, script.txt" 
+[master (root-commit) cfdaed1] Add Readme.md, script.txt
+ 2 files changed, 39 insertions(+)
+ create mode 100644 Readme.md
+ create mode 100644 script.txt
+front@pc:~/Documents/git-course$ 
 
